@@ -11,38 +11,41 @@ import logoPlanetaria from '@/images/logos/planetaria.svg'
 
 const projects = [
   {
-    name: 'Planetaria',
+    name: 'ScanFee',
     description:
-      'Creating technology to empower civilians to explore space on their own terms.',
-    link: { href: 'http://planetaria.tech', label: 'planetaria.tech' },
+      'Engineered an online printing service web application for a startup company (ReactJS, NodeJS, MongoDB, Heroku)..',
+    link: { href: 'https://scan-fee.herokuapp.com/', label: 'ScanFee' },
     logo: logoPlanetaria,
   },
   {
-    name: 'Animaginary',
+    name: 'Keos',
     description:
-      'High performance web animation library, hand-written in optimized WASM.',
-    link: { href: '#', label: 'github.com' },
+      'Designed and developed a SaaS product for a startup (ReactJS, NodeJS, MongoDB, GCP).',
+    link: { href: 'https://keos-calendar.herokuapp.com/', label: 'Keos' },
     logo: logoAnimaginary,
   },
   {
-    name: 'HelioStream',
+    name: 'RGB Place',
     description:
-      'Real-time video streaming library, optimized for interstellar transmission.',
-    link: { href: '#', label: 'github.com' },
+      'Developed a crypto-related web application from scratch (ReactJS, Heroku, Git).',
+    link: { href: 'https://rgb-place.vercel.app/', label: 'RBG Place' },
     logo: logoHelioStream,
   },
   {
-    name: 'cosmOS',
+    name: 'Virtual Assistant',
     description:
-      'The operating system that powers our Planetaria space shuttles.',
-    link: { href: '#', label: 'github.com' },
+      'An open-source project based on ML algorithms to help blind people understand their surroundings.',
+    link: {
+      href: 'https://github.com/hamzafer/Visual-Assistant',
+      label: 'Virtual Assistant',
+    },
     logo: logoCosmos,
   },
   {
     name: 'OpenShuttle',
     description:
-      'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: { href: '#', label: 'github.com' },
+      'Designed and developed a Licensing application that is being used to monitor thousands of clients',
+    link: { href: 'http://mt4licenseserver.com/', label: 'MT4 License Server' },
     logo: logoOpenShuttle,
   },
 ]
@@ -62,7 +65,7 @@ export default function Projects() {
   return (
     <>
       <Head>
-        <title>Projects - Spencer Sharp</title>
+        <title>Projects - Hamza Zafar</title>
         <meta
           name="description"
           content="Things I’ve made trying to put my dent in the universe."

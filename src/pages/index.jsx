@@ -4,26 +4,15 @@ import Link from 'next/link'
 import clsx from 'clsx'
 
 import { Button } from '@/components/Button'
-import { Card } from '@/components/Card'
 import { Container } from '@/components/Container'
-import {
-  TwitterIcon,
-  InstagramIcon,
-  GitHubIcon,
-  LinkedInIcon,
-} from '@/components/SocialIcons'
+import { TwitterIcon, GitHubIcon, LinkedInIcon } from '@/components/SocialIcons'
 import image1 from '@/images/photos/image-1.jpg'
 import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
 import image4 from '@/images/photos/image-4.jpg'
 import image5 from '@/images/photos/image-5.jpg'
-import logoAirbnb from '@/images/logos/airbnb.svg'
-import logoFacebook from '@/images/logos/facebook.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
-import logoStarbucks from '@/images/logos/starbucks.svg'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
-import { formatDate } from '@/lib/formatDate'
 
 function MailIcon(props) {
   return (
@@ -71,6 +60,29 @@ function BriefcaseIcon(props) {
   )
 }
 
+function EducationIcon(props) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      {...props}
+    >
+      <path
+        d="M2.75 9.75a3 3 0 0 1 3-3h12.5a3 3 0 0 1 3 3v8.5a3 3 0 0 1-3 3H5.75a3 3 0 0 1-3-3v-8.5Z"
+        className="fill-zinc-100 stroke-zinc-400 dark:fill-zinc-100/10 dark:stroke-zinc-500"
+      />
+      <path
+        d="M3 14.25h6.249c.484 0 .952-.002 1.316.319l.777.682a.996.996 0 0 0 1.316 0l.777-.682c.364-.32.832-.319 1.316-.319H21M8.75 6.5V4.75a2 2 0 0 1 2-2h2.5a2 2 0 0 1 2 2V6.5"
+        className="stroke-zinc-400 dark:stroke-zinc-500"
+      />
+    </svg>
+  )
+}
+
 function ArrowDownIcon(props) {
   return (
     <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" {...props}>
@@ -81,21 +93,6 @@ function ArrowDownIcon(props) {
         strokeLinejoin="round"
       />
     </svg>
-  )
-}
-
-function Article({ article }) {
-  return (
-    <Card as="article">
-      <Card.Title href={`/articles/${article.slug}`}>
-        {article.title}
-      </Card.Title>
-      <Card.Eyebrow as="time" dateTime={article.date} decorate>
-        {formatDate(article.date)}
-      </Card.Eyebrow>
-      <Card.Description>{article.description}</Card.Description>
-      <Card.Cta>Read article</Card.Cta>
-    </Card>
   )
 }
 
@@ -136,38 +133,124 @@ function Newsletter() {
   )
 }
 
+function Education() {
+  let resume = [
+    {
+      company: 'Norwegain University of Science and Technology (NTNU)',
+      title: 'Masters Degree',
+      start: 'Aug 2023',
+      end: 'Sep 2025',
+    },
+    {
+      company: 'National University of Computing and Emerging Sciences',
+      title: 'Bachelor Of Science - Computer Science',
+      grade: '3.85/4.0 (Magna Cum Laude)',
+      start: '2016',
+      end: '2020',
+    },
+    {
+      company: 'Divisional Model College',
+      title: 'Cambridge A Level, Computer Science',
+      grade: 'Grade: B',
+      start: '2014',
+      end: '2016',
+    },
+    {
+      company: 'Divisional Model College',
+      title: 'Cambridge O Level, Mathematics',
+      grade: 'Grade: A',
+      start: '2012',
+      end: '2014',
+    },
+  ]
+
+  return (
+    <div className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40">
+      <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+        {/* <BriefcaseIcon  /> */}
+        <EducationIcon className="h-6 w-6 flex-none" />
+        <span className="ml-3">Education</span>
+      </h2>
+      <ol className="mt-6 space-y-4">
+        {resume.map((role, roleIndex) => (
+          <li key={roleIndex} className="flex gap-4">
+            <dl className="flex flex-auto flex-wrap gap-x-2">
+              <dt className="sr-only">Company</dt>
+              <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                {role.company}
+              </dd>
+              <dt className="sr-only">Role</dt>
+              <dd className="text-xs text-zinc-500 dark:text-zinc-400">
+                {role.title}
+              </dd>
+              <dd className="text-xs text-zinc-500 dark:text-zinc-400">
+                {role?.grade}
+              </dd>
+              <dt className="sr-only">Date</dt>
+              <dd
+                className="ml-auto text-xs text-zinc-400 dark:text-zinc-500"
+                aria-label={`${role.start.label ?? role.start} until ${
+                  role.end.label ?? role.end
+                }`}
+              >
+                <time dateTime={role.start.dateTime ?? role.start}>
+                  {role.start.label ?? role.start}
+                </time>{' '}
+                <span aria-hidden="true">—</span>{' '}
+                <time dateTime={role.end.dateTime ?? role.end}>
+                  {role.end.label ?? role.end}
+                </time>
+              </dd>
+            </dl>
+          </li>
+        ))}
+      </ol>
+    </div>
+  )
+}
+
 function Resume() {
   let resume = [
     {
-      company: 'Planetaria',
-      title: 'CEO',
-      logo: logoPlanetaria,
-      start: '2019',
+      company: 'GeeksPod',
+      title: 'Senior Software Engineer',
+      start: 'Jun 2022',
       end: {
         label: 'Present',
         dateTime: new Date().getFullYear(),
       },
     },
+
     {
-      company: 'Airbnb',
-      title: 'Product Designer',
-      logo: logoAirbnb,
-      start: '2014',
-      end: '2019',
+      company: 'UWorx Group',
+      title: 'Software Engineer',
+      start: 'Jul 2020',
+      end: 'Jun 2022',
+    },
+
+    {
+      company: 'Fiverr',
+      title: 'Full Stack Engineer',
+      start: 'Aug 2018',
+      end: 'Jul 2020',
     },
     {
-      company: 'Facebook',
-      title: 'iOS Software Engineer',
-      logo: logoFacebook,
-      start: '2011',
-      end: '2014',
+      company: 'AcroDyna Technologies, LLC',
+      title: 'Software Developer',
+      start: 'Jan 2019',
+      end: 'Jun 2020',
     },
     {
-      company: 'Starbucks',
-      title: 'Shift Supervisor',
-      logo: logoStarbucks,
-      start: '2008',
-      end: '2011',
+      company: 'National University of Computer and Emerging Sciences',
+      title: 'Teaching Assistant',
+      start: 'Jun 2017',
+      end: 'Jan 2020',
+    },
+    {
+      company: 'MQL Development',
+      title: 'Software Engineer Intern',
+      start: 'Jun 2018',
+      end: 'Aug 2018',
     },
   ]
 
@@ -180,9 +263,6 @@ function Resume() {
       <ol className="mt-6 space-y-4">
         {resume.map((role, roleIndex) => (
           <li key={roleIndex} className="flex gap-4">
-            <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-              <Image src={role.logo} alt="" className="h-7 w-7" unoptimized />
-            </div>
             <dl className="flex flex-auto flex-wrap gap-x-2">
               <dt className="sr-only">Company</dt>
               <dd className="w-full flex-none text-sm font-medium text-zinc-900 dark:text-zinc-100">
@@ -211,7 +291,11 @@ function Resume() {
           </li>
         ))}
       </ol>
-      <Button href="#" variant="secondary" className="group mt-6 w-full">
+      <Button
+        href="https://hamzafar.me/assets/Hamza-Zafar-Resume.pdf"
+        variant="secondary"
+        className="group mt-6 w-full"
+      >
         Download CV
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
@@ -250,12 +334,10 @@ export default function Home({ articles }) {
   return (
     <>
       <Head>
-        <title>
-          Spencer Sharp - Software designer, founder, and amateur astronaut
-        </title>
+        <title>Hamza Zafer - Software Engineer</title>
         <meta
           name="description"
-          content="I’m Spencer, a software designer and entrepreneur based in New York City. I’m the founder and CEO of Planetaria, where we develop technologies that empower regular people to explore space on their own terms."
+          content="I’m Hamza Zafar, a software Engineer and entrepreneur."
         />
       </Head>
       <Container className="mt-9">
@@ -264,12 +346,12 @@ export default function Home({ articles }) {
             Erasmus Scholar, Senior Software Engineer, perpetual optimist.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            Hi, I'm Hamza, an Erasmus Scholar and Software Engineer with a
+            Hi, I&apos;m Hamza, an Erasmus Scholar and Software Engineer with a
             passion for coding, machine learning, and image processing. Top 3 in
-            my country for the Erasmus Mundus scholarship, I'm currently
+            my country for the Erasmus Mundus scholarship, I&apos;m currently
             mastering advanced image processing and machine learning. With a
             background in multinational companies and startups, I bring
-            expertise in developing innovative solutions. Let's connect and
+            expertise in developing innovative solutions. Let&apos;s connect and
             learn together!
           </p>
           <div className="mt-6 flex gap-6">
@@ -295,13 +377,10 @@ export default function Home({ articles }) {
       <Container className="mt-24 md:mt-28">
         <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
           <div className="flex flex-col gap-16">
-            {articles.map((article) => (
-              <Article key={article.slug} article={article} />
-            ))}
+            <Resume />
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
-            <Newsletter />
-            <Resume />
+            <Education />
           </div>
         </div>
       </Container>

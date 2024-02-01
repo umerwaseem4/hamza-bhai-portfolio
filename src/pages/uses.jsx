@@ -29,87 +29,73 @@ export default function Uses() {
   return (
     <>
       <Head>
-        <title>Uses - Spencer Sharp</title>
+        <title>Skills - Hamza Zafer</title>
         <meta
           name="description"
-          content="Software I use, gadgets I love, and other things I recommend."
+          content="Some Skills in which I'm proficient in."
         />
       </Head>
       <SimpleLayout
-        title="Software I use, gadgets I love, and other things I recommend."
+        title="Some Skills I'm proficient in."
         intro="I get asked a lot about the things I use to build software, stay productive, or buy to fool myself into thinking I’m being productive when I’m really just procrastinating. Here’s a big list of all of my favorite stuff."
       >
         <div className="space-y-20">
-          <ToolsSection title="Workstation">
-            <Tool title="16” MacBook Pro, M1 Max, 64GB RAM (2021)">
-              I was using an Intel-based 16” MacBook Pro prior to this and the
-              difference is night and day. I’ve never heard the fans turn on a
-              single time, even under the incredibly heavy loads I put it
-              through with our various launch simulations.
+          <ToolsSection title="Skills">
+            <Tool title="Web Development">
+              As a web developer, I specialize in crafting dynamic and
+              user-centric digital experiences. With a keen eye for detail,
+              I&apos;m dedicated to writing clean and efficient code that not
+              only meets but exceeds expectations.
             </Tool>
-            <Tool title="Apple Pro Display XDR (Standard Glass)">
-              The only display on the market if you want something HiDPI and
-              bigger than 27”. When you’re working at planetary scale, every
-              pixel you can get counts.
+            <Tool title="ML/AI">
+              In the realm of machine learning, I explore the fascinating
+              intersection of data and intelligence. With a focus on developing
+              algorithms and models, I delve into the world of pattern
+              recognition and predictive analytics
             </Tool>
-            <Tool title="IBM Model M SSK Industrial Keyboard">
-              They don’t make keyboards the way they used to. I buy these any
-              time I see them go up for sale and keep them in storage in case I
-              need parts or need to retire my main.
+            <Tool title="Databases">
+              As a database enthusiast, I specialize in designing robust and
+              efficient data architectures. Proficient in SQL and NoSQL
+              technologies, I excel in creating scalable solutions that ensure
+              seamless data management.
             </Tool>
-            <Tool title="Apple Magic Trackpad">
-              Something about all the gestures makes me feel like a wizard with
-              special powers. I really like feeling like a wizard with special
-              powers.
+            <Tool title="NextJs">
+              In the world of web development, I specialize in leveraging
+              Next.js to build high-performance and scalable React applications.
+              With a focus on server-side rendering and seamless client-side
+              navigation, I craft dynamic and responsive web solutions.
             </Tool>
-            <Tool title="Herman Miller Aeron Chair">
-              If I’m going to slouch in the worst ergonomic position imaginable
-              all day, I might as well do it in an expensive chair.
+            <Tool title="Python">
+              In the coding realm, Python is my forte. As a versatile and
+              powerful language, I harness Python&apos;s capabilities for
+              everything from web development to data analysis and machine
+              learning. With its clean syntax and extensive libraries, I thrive
+              on creating efficient and scalable solutions that bring ideas to
+              life.
             </Tool>
-          </ToolsSection>
-          <ToolsSection title="Development tools">
-            <Tool title="Sublime Text 4">
-              I don’t care if it’s missing all of the fancy IDE features
-              everyone else relies on, Sublime Text is still the best text
-              editor ever made.
-            </Tool>
-            <Tool title="iTerm2">
-              I’m honestly not even sure what features I get with this that
-              aren’t just part of the macOS Terminal but it’s what I use.
-            </Tool>
-            <Tool title="TablePlus">
-              Great software for working with databases. Has saved me from
-              building about a thousand admin interfaces for my various projects
-              over the years.
-            </Tool>
-          </ToolsSection>
-          <ToolsSection title="Design">
             <Tool title="Figma">
               We started using Figma as just a design tool but now it’s become
               our virtual whiteboard for the entire company. Never would have
               expected the collaboration features to be the real hook.
             </Tool>
-          </ToolsSection>
-          <ToolsSection title="Productivity">
-            <Tool title="Alfred">
-              It’s not the newest kid on the block but it’s still the fastest.
-              The Sublime Text of the application launcher world.
+            <Tool title="React">
+              In the realm of front-end development, I specialize in React,
+              turning concepts into interactive and user-friendly interfaces.
+              With a strong foundation in component-based architecture and state
+              management, I craft dynamic and responsive web applications.
             </Tool>
-            <Tool title="Reflect">
-              Using a daily notes system instead of trying to keep things
-              organized by topics has been super powerful for me. And with
-              Reflect, it’s still easy for me to keep all of that stuff
-              discoverable by topic even though all of my writing happens in the
-              daily note.
+            <Tool title="Javascript">
+              JavaScript is my coding playground, where I bring websites to life
+              with dynamic and interactive features. Proficient in both
+              front-end and back-end development, I leverage the versatility of
+              JavaScript to create seamless user experiences and robust
+              server-side functionalities
             </Tool>
-            <Tool title="SavvyCal">
-              Great tool for scheduling meetings while protecting my calendar
-              and making sure I still have lots of time for deep work during the
-              week.
-            </Tool>
-            <Tool title="Focus">
-              Simple tool for blocking distracting websites when I need to just
-              do the work and get some momentum going.
+            <Tool title="Java/ASP.Net">
+              Equally adept in Java and ASP.NET, I specialize in crafting robust
+              and scalable solutions. Whether developing dynamic web
+              applications or building enterprise-level systems, my proficiency
+              spans diverse technologies.
             </Tool>
           </ToolsSection>
         </div>
